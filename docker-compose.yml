@@ -1,0 +1,9 @@
+version: '2'
+services:
+  sensu:
+      image: naemono/docker-sensu-server
+      ports:
+        - "3000:3000"
+        - "4567:4567"
+        - "5671:5671"
+        - "15672:15672"
