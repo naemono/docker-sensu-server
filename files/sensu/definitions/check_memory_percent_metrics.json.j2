@@ -1,0 +1,17 @@
+{
+  "checks": {
+    "memory_percent_metrics": {
+      "type": "metric",
+      "command": "/opt/sensu/embedded/bin/ruby {{sensu_config_path}}/plugins/metrics-memory-percent.rb",
+      "subscribers": [
+        "common",
+        "environment_STG"
+      ],
+      "interval": 10,
+      "time_precision": "s",
+      "handlers": [
+        "metrics"
+      ]
+    }
+  }
+}

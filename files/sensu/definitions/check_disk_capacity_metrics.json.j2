@@ -1,0 +1,17 @@
+{
+  "checks": {
+    "disk_capacity_metrics": {
+      "type": "metric",
+      "command": "/opt/sensu/embedded/bin/ruby {{sensu_config_path}}/plugins/metrics-disk-capacity.rb",
+      "subscribers": [
+        "common",
+        "environment_STG"
+      ],
+      "interval": 10,
+      "time_precision": "s",
+      "handlers": [
+        "metrics"
+      ]
+    }
+  }
+}

@@ -1,4 +1,4 @@
-# docker-sensu-server
+# docker-sensu-server (Forked from hiroakis)
 
 CentOS and sensu.
 It runs redis, rabbitmq-server, uchiwa, sensu-api, sensu-server and ssh processes.
@@ -8,7 +8,7 @@ It runs redis, rabbitmq-server, uchiwa, sensu-api, sensu-server and ssh processe
 Install from docker index or build from Dockerfile
 
 ```
-docker pull hiroakis/docker-sensu-server
+docker pull naemono/docker-sensu-server
 ```
 
 or

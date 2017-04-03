@@ -1,0 +1,17 @@
+{
+  "checks": {
+    "cpu_pcnt_usage_metrics": {
+      "type": "metric",
+      "command": "/opt/sensu/embedded/bin/ruby {{sensu_config_path}}/plugins/metrics-cpu-pcnt-usage.rb",
+      "subscribers": [
+        "common",
+        "environment_STG"
+      ],
+      "interval": 10,
+      "time_precision": "s",
+      "handlers": [
+        "metrics"
+      ]
+    }
+  }
+}

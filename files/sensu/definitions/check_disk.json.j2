@@ -1,0 +1,14 @@
+{
+  "checks": {
+    "check-disk-usage-linux": {
+      "handlers": [],
+      "command": "/opt/sensu/embedded/bin/ruby {{sensu_config_path}}/plugins/check-disk-usage.rb -p /var/lib/docker -x proc -w 80 -c 90",
+      "interval": 60,
+      "occurrences": 5,
+      "subscribers": [
+        "common",
+        "environment_STG"
+      ]
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "checks": {
+    "mongodb_metrics": {
+      "type": "metric",
+      "command": "/opt/sensu/embedded/bin/ruby {{sensu_config_path}}/plugins/metrics-mongodb.rb",
+      "subscribers": [
+        "mongod",
+        "service_role_mongod",
+        "mongos",
+        "service_role_mongos"
+      ],
+      "interval": 10,
+      "time_precision": "s",
+      "handlers": [
+        "metrics"
+      ]
+    }
+  }
+}
