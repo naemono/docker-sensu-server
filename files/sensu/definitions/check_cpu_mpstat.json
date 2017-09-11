@@ -1,8 +1,8 @@
 {
   "checks": {
-    "disk_capacity_metrics": {
+    "cpu_mpstat_metrics": {
       "type": "metric",
-      "command": "/opt/sensu/embedded/bin/ruby {{sensu_config_path}}/plugins/metrics-disk-capacity.rb",
+      "command": "/opt/sensu/embedded/bin/ruby /etc/sensu/plugins/metrics-cpu-mpstat.rb",
       "subscribers": [
         "common",
         "environment_STG"

@@ -1,8 +1,8 @@
 {
   "checks": {
-    "cpu_mpstat_metrics": {
+    "memory_percent_metrics": {
       "type": "metric",
-      "command": "/opt/sensu/embedded/bin/ruby {{sensu_config_path}}/plugins/metrics-cpu-mpstat.rb",
+      "command": "/opt/sensu/embedded/bin/ruby /etc/sensu/plugins/metrics-memory-percent.rb",
       "subscribers": [
         "common",
         "environment_STG"

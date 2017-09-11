@@ -1,8 +1,8 @@
 {
   "checks": {
-    "check-disk-usage-linux": {
+    "check-memory-usage-linux": {
       "handlers": [],
-      "command": "/opt/sensu/embedded/bin/ruby {{sensu_config_path}}/plugins/check-disk-usage.rb -p /var/lib/docker -x proc -w 80 -c 90",
+      "command": "/opt/sensu/embedded/bin/ruby /etc/sensu/plugins/check-ram.rb -w 10 -c 5",
       "interval": 60,
       "occurrences": 5,
       "subscribers": [

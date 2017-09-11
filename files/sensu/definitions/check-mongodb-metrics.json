@@ -2,7 +2,7 @@
   "checks": {
     "mongodb_metrics": {
       "type": "metric",
-      "command": "/opt/sensu/embedded/bin/ruby {{sensu_config_path}}/plugins/metrics-mongodb.rb",
+      "command": "/opt/sensu/embedded/bin/ruby /etc/sensu/plugins/metrics-mongodb.rb --user dba --password :::mongodb.password|not_correct:::",
       "subscribers": [
         "mongod",
         "service_role_mongod",

@@ -1,8 +1,8 @@
 {
   "checks": {
-    "cpu_metrics": {
+    "disk_usage_metrics": {
       "type": "metric",
-      "command": "/opt/sensu/embedded/bin/ruby {{sensu_config_path}}/plugins/metrics-cpu.rb",
+      "command": "/opt/sensu/embedded/bin/ruby /etc/sensu/plugins/metrics-disk-usage.rb",
       "subscribers": [
         "common",
         "environment_STG"

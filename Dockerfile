@@ -4,7 +4,7 @@ MAINTAINER Hiroaki Sano <hiroaki.sano.9stories@gmail.com>
 
 # Basic packages
 RUN rpm -Uvh http://download.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm \
-  && yum -y install passwd sudo git wget openssl openssh openssh-server openssh-clients
+  && yum -y install passwd sudo git wget openssl openssh openssh-server openssh-clients gcc-c++
 
 # Create user
 RUN useradd hiroakis \
@@ -35,9 +35,15 @@ RUN yum install -y sensu
 ADD ./files/sensu/config.json /etc/sensu/
 RUN mkdir -p /etc/sensu/ssl \
   && cp /joemiller.me-intro-to-sensu/client_cert.pem /etc/sensu/ssl/cert.pem \
-  && cp /joemiller.me-intro-to-sensu/client_key.pem /etc/sensu/ssl/key.pem
+  && cp /joemiller.me-intro-to-sensu/client_key.pem /etc/sensu/ssl/key.pem \
+  && echo 'LOG_LEVEL=debug' >> /etc/default/sensu
 COPY ./files/sensu/checks/* /etc/sensu/plugins/
 COPY ./files/sensu/definitions/* /etc/sensu/conf.d/
+COPY ./files/sensu/handlers/* /etc/sensu/conf.d/
+COPY ./files/sensu/influxdb.json /etc/sensu/conf.d/influxdb.json
+RUN mkdir /opt/sensu/.gem && chown sensu:sensu /opt/sensu/.gem && chown -R sensu:sensu /opt/sensu
+RUN su -c "/opt/sensu/embedded/bin/gem install --user-install em-http-request influxdb multi_json" -s /bin/sh sensu
+RUN wget -O /etc/sensu/extensions/influxdb.rb https://raw.githubusercontent.com/naemono/sensu-influxdb-extension/master/influxdb.rb
 
 # uchiwa
 RUN yum install -y uchiwa

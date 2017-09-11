@@ -1,0 +1,11 @@
+{
+  "handlers": {
+    "metrics": {
+      "type": "set",
+      "handlers": [
+        "debug",
+        "influxdb"
+      ]
+    }
+  }
+}

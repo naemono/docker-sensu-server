@@ -1,0 +1,145 @@
+{
+  "checks": {
+    "check-mongodb-connect": {
+      "handlers": [],
+      "command": "/opt/sensu/embedded/bin/ruby /etc/sensu/plugins/check-mongodb.rb -H localhost -P 27017 -u dba -p :::mongodb.password|not_correct::: -A connect",
+      "interval": 60,
+      "occurrences": 5,
+      "subscribers": [
+        "mongod",
+        "service_role_mongod"
+      ]
+    },
+    "check-mongos-connect": {
+      "handlers": [],
+      "command": "/opt/sensu/embedded/bin/ruby /etc/sensu/plugins/check-mongodb.rb -H localhost -P 27018 -A connect",
+      "interval": 60,
+      "occurrences": 5,
+      "subscribers": [
+        "mongod",
+        "service_role_mongos"
+      ]
+    },
+    "check-mongod-num-connections": {
+      "handlers": [],
+      "command": "/opt/sensu/embedded/bin/ruby /etc/sensu/plugins/check-mongodb.rb -H localhost -P 27017 -u dba -p :::mongodb.password|not_correct::: -A connections",
+      "interval": 60,
+      "occurrences": 5,
+      "subscribers": [
+        "mongodb",
+        "service_role_mongod"
+      ]
+    },
+    "check-mongod-replication-lag": {
+      "handlers": [],
+      "command": "/opt/sensu/embedded/bin/ruby /etc/sensu/plugins/check-mongodb.rb -H :::mongodb.hostname|not_correct::: -P 27017 -u dba -p :::mongodb.password|not_correct::: -A replication_lag",
+      "interval": 60,
+      "occurrences": 5,
+      "subscribers": [
+        "mongodb",
+        "service_role_mongod"
+      ]
+    },
+    "check-mongod-replset-state": {
+      "handlers": [],
+      "command": "/opt/sensu/embedded/bin/ruby /etc/sensu/plugins/check-mongodb.rb -H localhost -P 27017 -u dba -p :::mongodb.password|not_correct::: -A replset_state",
+      "interval": 60,
+      "occurrences": 5,
+      "subscribers": [
+        "mongod",
+        "service_role_mongod"
+      ]
+    },
+    "check-mongod-memory": {
+      "handlers": [],
+      "command": "/opt/sensu/embedded/bin/ruby /etc/sensu/plugins/check-mongodb.rb -H localhost -P 27017 -u dba -p :::mongodb.password|not_correct::: -A memory",
+      "interval": 60,
+      "occurrences": 5,
+      "subscribers": [
+        "mongod",
+        "service_role_mongod"
+      ]
+    },
+    "check-mongod-memory-mapped": {
+      "handlers": [],
+      "command": "/opt/sensu/embedded/bin/ruby /etc/sensu/plugins/check-mongodb.rb -H localhost -P 27017 -u dba -p :::mongodb.password|not_correct::: -A memory_mapped",
+      "interval": 60,
+      "occurrences": 5,
+      "subscribers": [
+        "mongod",
+        "service_role_mongod",
+        "environment_STG"
+      ]
+    },
+    "check-mongod-queues": {
+      "handlers": [],
+      "command": "/opt/sensu/embedded/bin/ruby /etc/sensu/plugins/check-mongodb.rb -H localhost -P 27017 -u dba -p :::mongodb.password|not_correct::: -A queues",
+      "interval": 60,
+      "occurrences": 5,
+      "subscribers": [
+        "mongod",
+        "service_role_mongod"
+      ]
+    },
+    "check-mongod-oplog": {
+      "handlers": [],
+      "command": "/opt/sensu/embedded/bin/ruby /etc/sensu/plugins/check-mongodb.rb -H localhost -P 27017 -u dba -p :::mongodb.password|not_correct::: -A oplog",
+      "interval": 60,
+      "occurrences": 5,
+      "subscribers": [
+        "mongod",
+        "service_role_mongod"
+      ]
+    },
+    "check-mongod-opcounters": {
+      "handlers": [],
+      "command": "/opt/sensu/embedded/bin/ruby /etc/sensu/plugins/check-mongodb.rb -H localhost -P 27017 -u dba -p :::mongodb.password|not_correct::: -A opcounters",
+      "interval": 60,
+      "occurrences": 5,
+      "subscribers": [
+        "mongod",
+        "service_role_mongod"
+      ]
+    },
+    "check-mongod-page-faults": {
+      "handlers": [],
+      "command": "/opt/sensu/embedded/bin/ruby /etc/sensu/plugins/check-mongodb.rb -H localhost -P 27017 -u dba -p :::mongodb.password|not_correct::: -A page_faults",
+      "interval": 60,
+      "occurrences": 5,
+      "subscribers": [
+        "mongod",
+        "service_role_mongod"
+      ]
+    },
+    "check-mongod-asserts": {
+      "handlers": [],
+      "command": "/opt/sensu/embedded/bin/ruby /etc/sensu/plugins/check-mongodb.rb -H localhost -P 27017 -u dba -p :::mongodb.password|not_correct::: -A asserts",
+      "interval": 60,
+      "occurrences": 5,
+      "subscribers": [
+        "mongod",
+        "service_role_mongod"
+      ]
+    },
+    "check-mongod-queries-per-second": {
+      "handlers": [],
+      "command": "/opt/sensu/embedded/bin/ruby /etc/sensu/plugins/check-mongodb.rb -H localhost -P 27017 -u dba -p :::mongodb.password|not_correct::: -A queries_per_second",
+      "interval": 60,
+      "occurrences": 5,
+      "subscribers": [
+        "mongod",
+        "service_role_mongod"
+      ]
+    },
+    "check-mongod-replset-quorum": {
+      "handlers": [],
+      "command": "/opt/sensu/embedded/bin/ruby /etc/sensu/plugins/check-mongodb.rb -H localhost -P 27017 -u dba -p :::mongodb.password|not_correct::: -A replset_quorum",
+      "interval": 60,
+      "occurrences": 5,
+      "subscribers": [
+        "mongod",
+        "service_role_mongod"
+      ]
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "influxdb": {
+    "database": "metrics",
+    "host": "iad1.devtools",
+    "port": "8086",
+    "use_ssl": false
+  }
+}
