@@ -2,9 +2,9 @@
   "rabbitmq": {
     "host": "iad1.devtools",
     "port": 5672,
-    "vhost": "/sensu",
-    "user": "sensu",
-    "password": "password"
+    "vhost": "/",
+    "user": "devtools",
+    "password": "devtools"
   },
   "redis": {
     "host": "iad1.devtools",
